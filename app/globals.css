@@ -1,26 +1,210 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   AlignArchitect — Design Tokens (Tailwind v4 CSS-first @theme)
+   Precision engineering meets premium healthcare.
+   ============================================================================ */
+
+@theme {
+  /* — Core palette ——————————————————————————————————————————————— */
+  --color-ink: #0b1220; /* primary dark canvas / text */
+  --color-ink-800: #111a2b; /* raised dark surfaces */
+  --color-ink-700: #1b2740; /* dark borders / hairlines */
+
+  --color-paper: #f7f9fb; /* default light canvas */
+  --color-paper-raised: #ffffff; /* cards on paper */
+
+  /* Graphite neutral scale (cool) */
+  --color-graphite-50: #f4f6f8;
+  --color-graphite-100: #e8ecf1;
+  --color-graphite-200: #d6dde6;
+  --color-graphite-300: #b9c4d1;
+  --color-graphite-400: #8e9cae;
+  --color-graphite-500: #677488;
+  --color-graphite-600: #4d5868;
+  --color-graphite-700: #3a4454;
+  --color-graphite-800: #28303d;
+  --color-graphite-900: #171d27;
+
+  /* Signature teal-cyan accent */
+  --color-teal-50: #e6f7f7;
+  --color-teal-100: #c2ecec;
+  --color-teal-300: #5fd3d6;
+  --color-teal: #0fb5ba; /* primary accent */
+  --color-teal-600: #0c9499;
+  --color-teal-700: #0a767a;
+
+  /* Semantic */
+  --color-success: #1fab7a;
+  --color-line: #e2e8f0; /* hairline on light */
+  --color-line-strong: #cdd6e2;
+
+  /* — Typography ——————————————————————————————————————————————— */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+
+  /* Fluid display scale (clamp) */
+  --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h1: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -0.025em;
+
+  --text-h2: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.02em;
+
+  --text-h3: clamp(1.3rem, 1.05rem + 1vw, 1.65rem);
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.01em;
+
+  --text-lede: clamp(1.05rem, 0.98rem + 0.5vw, 1.3rem);
+  --text-lede--line-height: 1.55;
+
+  /* — Radii ————————————————————————————————————————————————————— */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+
+  /* — Shadows (subtle, precise) ——————————————————————————————————— */
+  --shadow-soft: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px -12px rgba(11, 18, 32, 0.12);
+  --shadow-lift: 0 2px 4px rgba(11, 18, 32, 0.05), 0 18px 40px -18px rgba(11, 18, 32, 0.22);
+  --shadow-glow: 0 0 0 1px rgba(15, 181, 186, 0.25), 0 12px 36px -10px rgba(15, 181, 186, 0.3);
+
+  /* — Motion ————————————————————————————————————————————————————— */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ============================================================================
+   Base
+   ============================================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --container: 1200px;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01", "cv11";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   Utilities & atmospheric details
+   ============================================================================ */
+
+/* Mono spec label — the precision-engineering signature */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Hairline precision grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-graphite-300) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-graphite-300) 38%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Radial fade mask for grids / atmosphere */
+.mask-radial {
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, #000 40%, transparent 100%);
+}
+
+/* Subtle grain overlay */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Animated SVG line drawing */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Slow grid drift for hero atmosphere */
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 56px 56px;
+  }
+}
+.animate-grid-drift {
+  animation: grid-drift 14s linear infinite;
+}
+
+/* Marquee for trust strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
