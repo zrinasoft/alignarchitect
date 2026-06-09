@@ -43,13 +43,13 @@ export function HeroArchForm({ className = "" }: { className?: string }) {
       >
         <defs>
           <linearGradient id="archGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0fb5ba" />
-            <stop offset="100%" stopColor="#0a767a" />
+            <stop offset="0%" style={{ stopColor: "var(--color-teal)" }} />
+            <stop offset="100%" style={{ stopColor: "var(--color-teal-700)" }} />
           </linearGradient>
           <linearGradient id="sweepGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0fb5ba" stopOpacity="0" />
-            <stop offset="50%" stopColor="#0fb5ba" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#0fb5ba" stopOpacity="0" />
+            <stop offset="0%" style={{ stopColor: "var(--color-teal)", stopOpacity: 0 }} />
+            <stop offset="50%" style={{ stopColor: "var(--color-teal)", stopOpacity: 0.55 }} />
+            <stop offset="100%" style={{ stopColor: "var(--color-teal)", stopOpacity: 0 }} />
           </linearGradient>
           <clipPath id="frameClip">
             <rect x="20" y="20" width="440" height="440" rx="18" />
