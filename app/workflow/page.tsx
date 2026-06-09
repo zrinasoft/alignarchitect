@@ -4,7 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { WORKFLOW } from "@/lib/content";
+import { WORKFLOW, METRICS } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Digital Workflow",
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 const SLAS = [
-  { k: "Intake to setup", v: "{{turnaround_planning}}" },
-  { k: "QC pass", v: "{{turnaround_qc}}" },
-  { k: "Revision rounds", v: "{{revision_policy}}" },
+  { k: "Intake to setup", v: METRICS.slaIntakeToSetup },
+  { k: "QC pass", v: METRICS.slaQcPass },
+  { k: "Revision rounds", v: METRICS.revisionPolicy },
 ];
 
 export default function WorkflowPage() {

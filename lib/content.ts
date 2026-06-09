@@ -2,19 +2,35 @@
  * Centralised site copy for AlignArchitect.
  *
  * COPY RULE: only verified facts are stated as claims (10+ yrs, named partners,
- * the 4 services, the 3 audiences). Any number we don't actually know is a
- * {{token}} — see PLACEHOLDERS.md for the full inventory to fill before launch.
+ * the 4 services, the 3 audiences). Numbers we don't actually have yet use
+ * PROVISIONAL placeholder values (tagged `// PROVISIONAL` in SITE / METRICS
+ * below) — every one is traced in PLACEHOLDERS.md; replace before launch.
  */
 
 export const SITE = {
   name: "AlignArchitect",
   tagline: "Precision aligner treatment planning",
-  // Contact placeholders — fill before launch.
-  email: "{{contact_email}}",
-  phone: "{{contact_phone}}",
-  responseTime: "{{response_time}}",
+  // PROVISIONAL contact details — placeholder data, replace before launch.
+  // See PLACEHOLDERS.md for the full trace.
+  email: "hello@alignarchitect.com", // PROVISIONAL
+  phone: "+1 (555) 018-2204", // PROVISIONAL (555 = reserved fictional range)
+  responseTime: "Within 1 business day", // PROVISIONAL
   partners: ["Straumann", "Zenyum", "Softsmile"],
   yearsExperience: "10+",
+} as const;
+
+/**
+ * PROVISIONAL operational metrics — placeholder values so the site reads as
+ * complete. NONE of these are verified; replace with real figures before
+ * launch. Every value here is logged in PLACEHOLDERS.md.
+ */
+export const METRICS = {
+  casesPlanned: "12,000+", // PROVISIONAL
+  planTurnaround: "48–72h", // PROVISIONAL
+  marketsServed: "20+", // PROVISIONAL
+  slaIntakeToSetup: "48–72h", // PROVISIONAL
+  slaQcPass: "Within 24h", // PROVISIONAL
+  revisionPolicy: "Unlimited in scope", // PROVISIONAL
 } as const;
 
 export type NavLink = { label: string; href: string };
@@ -224,10 +240,10 @@ export const DIFFERENTIATORS: Differentiator[] = [
 
 export type Stat = { value: string; suffix?: string; label: string };
 
-// NOTE: numeric values are placeholders — see PLACEHOLDERS.md.
+// NOTE: all but the first value are PROVISIONAL — see PLACEHOLDERS.md.
 export const STATS: Stat[] = [
   { value: "10", suffix: "+", label: "Years planning aligner cases" },
-  { value: "{{cases_planned}}", label: "Cases planned & reviewed" },
-  { value: "{{turnaround}}", label: "Typical plan turnaround" },
-  { value: "{{countries}}", label: "Markets served" },
+  { value: METRICS.casesPlanned, label: "Cases planned & reviewed" },
+  { value: METRICS.planTurnaround, label: "Typical plan turnaround" },
+  { value: METRICS.marketsServed, label: "Markets served" },
 ];
