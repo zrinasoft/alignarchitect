@@ -17,9 +17,24 @@ control & review of third-party treatment plans, (4) remote crown/bridge/implant
 - Path alias `@/*` → project root
 
 ## Commands
-- `pnpm dev` — dev server
-- `pnpm build` — production build (must pass before shipping)
+- `pnpm dev` — dev server (Turbopack)
+- `pnpm build` — static export → outputs `./out` (must pass before shipping)
+- `pnpm preview` — serve the exported `./out` with a static file server
 - `pnpm lint` — eslint (must be clean)
+
+## Static export / hosting
+This is a **fully static site** (`output: "export"` in `next.config.ts`) — no API routes,
+server actions, or middleware. `pnpm build` emits `./out` as plain HTML/CSS/JS, hostable on any
+static host (nginx, GitHub Pages, Netlify, S3, Cloudflare Pages). `trailingSlash: true` produces
+`/<route>/index.html` paths for maximum portability; `images.unoptimized` is on (no `next/image` in use).
+Note: `next start` does **not** work with static export — use `pnpm preview` (or any static server) instead.
+
+### Dev-server note
+If `pnpm dev` logs a 500 for `/custom-sw.js` and "Could not find the module … global-error.js in the
+React Client Manifest", that's a **stale service worker registered in the browser** by a different app
+previously served on `localhost:3000` — it is not from this project (we register no service worker).
+Fix: DevTools → Application → Service Workers → **Unregister** (and Clear storage), then hard-reload.
+If it persists, also clear the dev cache: `rm -rf .next`.
 
 ## Project structure
 ```
