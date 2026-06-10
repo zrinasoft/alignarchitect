@@ -1,14 +1,15 @@
 /**
- * Full-screen brand loader shown until the app hydrates.
+ * Full-screen brand loader shown until the page finishes loading.
  *
  * Resilience by design:
- * - Markup + CSS are inline (no dependency on the Tailwind or JS bundle), so it
- *   paints on first byte even over a slow network.
+ * - The overlay's critical layout (fixed, full-screen, paper background, z-top)
+ *   is set via an inline `style` attribute, so it covers the screen on first
+ *   parse even before the <style> block or the Tailwind/JS bundles apply.
  * - It is hidden by adding the `aa-hide` class (never removed from the DOM), so
  *   it never conflicts with React hydration.
- * - <LoaderDismiss> hides it the moment React hydrates (fast path); the inline
- *   script hides it on window `load` and after a hard 10s timeout (fallbacks),
- *   so it can never get stuck on screen.
+ * - The inline script hides it on window `load` (after CSS + images, so no
+ *   unstyled flash) with a minimum display time and a hard timeout cap, so it
+ *   can never get stuck on screen.
  */
 export function PageLoader() {
   return (
@@ -16,9 +17,7 @@ export function PageLoader() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-#aa-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#F7F9FB;transition:opacity .5s ease,visibility .5s ease;}
-#aa-loader.aa-hide{opacity:0;visibility:hidden;pointer-events:none;}
-#aa-loader .aa-box{display:flex;flex-direction:column;align-items:center;gap:20px;}
+#aa-loader.aa-hide{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
 #aa-loader svg{overflow:visible;}
 #aa-loader .aa-base{stroke:#0B1220;}
 #aa-loader .aa-inner{stroke:#9aa6b6;}
@@ -33,8 +32,29 @@ export function PageLoader() {
 `,
         }}
       />
-      <div id="aa-loader" aria-hidden="true" role="presentation">
-        <div className="aa-box">
+      <div
+        id="aa-loader"
+        aria-hidden="true"
+        role="presentation"
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 9999,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#F7F9FB",
+          transition: "opacity .5s ease, visibility .5s ease",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "20px",
+          }}
+        >
           <svg width="46" height="46" viewBox="0 0 28 28" fill="none" aria-hidden="true">
             <line className="aa-base" x1="3" y1="22" x2="25" y2="22" strokeWidth="1.6" strokeLinecap="round" />
             <path className="aa-inner" d="M8.5 22 Q14 10 19.5 22" strokeWidth="1.4" fill="none" strokeLinecap="round" />
@@ -57,7 +77,7 @@ export function PageLoader() {
       </div>
       <script
         dangerouslySetInnerHTML={{
-          __html: `(function(){var e=document.getElementById('aa-loader');if(!e)return;var h=function(){e.classList.add('aa-hide');};window.__aaHideLoader=h;if(document.readyState==='complete'){setTimeout(h,300);}else{window.addEventListener('load',h);}setTimeout(h,10000);})();`,
+          __html: `(function(){var e=document.getElementById('aa-loader');if(!e)return;var s=Date.now(),MIN=450,CAP=6000,done=false;function hide(){if(done)return;done=true;var w=Math.max(0,MIN-(Date.now()-s));setTimeout(function(){e.classList.add('aa-hide');},w);}if(document.readyState==='complete'){hide();}else{window.addEventListener('load',hide);}setTimeout(hide,CAP);})();`,
         }}
       />
     </>

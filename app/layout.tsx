@@ -4,7 +4,6 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageLoader } from "@/components/PageLoader";
-import { LoaderDismiss } from "@/components/LoaderDismiss";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -65,7 +64,6 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <LoaderDismiss />
       </body>
     </html>
   );
