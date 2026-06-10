@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { WORKFLOW, METRICS } from "@/lib/content";
+import { WorkflowTimeline } from "@/components/sections/WorkflowTimeline";
+import { METRICS } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Digital Workflow",
@@ -35,47 +36,7 @@ export default function WorkflowPage() {
       {/* timeline */}
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="relative">
-            {/* vertical rail */}
-            <span
-              aria-hidden
-              className="absolute left-[27px] top-4 bottom-4 w-px bg-line sm:left-[31px]"
-            />
-            <RevealGroup className="space-y-12 sm:space-y-16" staggerChildren={0.12}>
-              {WORKFLOW.map((step) => (
-                <RevealItem key={step.step}>
-                  <div className="relative grid gap-6 pl-20 sm:grid-cols-[1fr_auto] sm:gap-12 sm:pl-24">
-                    {/* node */}
-                    <span className="absolute left-0 top-0 flex size-14 items-center justify-center rounded-full border border-line bg-paper-raised font-display text-lg font-medium text-teal-600 shadow-soft sm:size-16">
-                      {step.step}
-                    </span>
-
-                    <div className="max-w-xl">
-                      <h2 className="font-display text-h3 font-medium tracking-tight text-ink">
-                        {step.title}
-                      </h2>
-                      <p className="mt-3 text-graphite-600 leading-relaxed">{step.description}</p>
-                    </div>
-
-                    <div className="sm:w-56 sm:shrink-0">
-                      <Eyebrow>Outputs</Eyebrow>
-                      <ul className="mt-4 space-y-2">
-                        {step.outputs.map((o) => (
-                          <li
-                            key={o}
-                            className="flex items-center gap-2.5 text-sm text-graphite-700"
-                          >
-                            <span className="size-1.5 rounded-full bg-teal" />
-                            {o}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
+          <WorkflowTimeline />
         </Container>
       </section>
 

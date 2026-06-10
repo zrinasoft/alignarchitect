@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 
 type FramedImageProps = {
   src: string;
@@ -10,12 +14,15 @@ type FramedImageProps = {
   aspectClassName?: string;
   className?: string;
   sizes?: string;
+  /** scroll parallax on the image within its frame (default true) */
+  parallax?: boolean;
 };
 
 /**
  * A photo wrapped in AlignArchitect's precision-instrument framing — rounded
  * panel, hairline border, corner registration ticks, and an optional mono
- * caption tab. Ties real photography to the brand's draughting aesthetic.
+ * caption tab. The image drifts slowly within the frame on scroll (parallax),
+ * disabled under prefers-reduced-motion.
  */
 export function FramedImage({
   src,
@@ -25,19 +32,36 @@ export function FramedImage({
   aspectClassName = "aspect-[4/3]",
   className = "",
   sizes = "(min-width: 1024px) 45vw, 100vw",
+  parallax = true,
 }: FramedImageProps) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    parallax && !reduce ? ["-6%", "6%"] : ["0%", "0%"],
+  );
+
   return (
     <figure
+      ref={ref}
       className={`group relative ${aspectClassName} overflow-hidden rounded-2xl border border-line bg-graphite-100 shadow-lift ${className}`}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-      />
+      {/* parallax layer — taller than the frame so edges never reveal */}
+      <motion.div style={{ y }} className="absolute inset-x-0 -top-[8%] h-[116%]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes={sizes}
+          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+        />
+      </motion.div>
 
       {/* subtle ink wash for legibility + depth */}
       <span
