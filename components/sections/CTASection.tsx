@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -24,6 +25,16 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section className="relative overflow-hidden bg-ink text-paper">
+      {/* geometric texture */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/abstract-cyan-geometric-lines-background.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.08] mix-blend-screen mask-radial"
+        />
+      </div>
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-60 mask-radial" />
       {/* teal glow */}
       <div

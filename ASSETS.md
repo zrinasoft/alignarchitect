@@ -19,6 +19,22 @@
 | `abstract-cyan-geometric-lines-background` | Dark feature section background |
 | `hexagonal-metal-mesh-pattern-closeup` | Texture overlay on dark sections |
 
+## Current usage (wired up)
+| Image | Used in |
+|-------|---------|
+| `gloved-hands-holding-clear-dental-aligner` | Services → Aligner Planning block |
+| `dental-prosthetic-bridge-and-3d-model` | Services → White-Label block · About hero |
+| `dentist-analyzing-panoramic-child-dental-xray` | Services → QC & Review block |
+| `dental-technician-designing-3d-crown` | Services → CAD/CAM block · Workflow hero |
+| `endodontic-file-dental-handpiece-closeup` | Services hero (precision) |
+| `abstract-teal-fractal-burst-background` | Contact hero (bg overlay) |
+| `abstract-cyan-geometric-lines-background` | Closing CTA section (dark bg texture) |
+| `hexagonal-metal-mesh-pattern-closeup` | **Not used yet** — 3.4 MB, compress to WebP first |
+
+> Photos render via `next/image` (config has `images.unoptimized` for static export, so files
+> are served at original size). Before launch, compress/convert to WebP to cut page weight —
+> `dental-technician-designing-3d-crown` (1.2 MB) and `hexagonal-metal-mesh` (3.4 MB) especially.
+
 ## What's Missing (add later)
 - [ ] Team / founder photo
 - [ ] Partner logos (Straumann, Zenyum, Softsmile)

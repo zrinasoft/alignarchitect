@@ -53,6 +53,8 @@ export type Service = {
   description: string;
   deliverables: string[];
   audience: string;
+  image: string;
+  imageAlt: string;
 };
 
 export const SERVICES: Service[] = [
@@ -71,6 +73,8 @@ export const SERVICES: Service[] = [
       "Annotated treatment narrative for case acceptance",
     ],
     audience: "Dentists & orthodontists",
+    image: "/images/gloved-hands-holding-clear-dental-aligner.jpg",
+    imageAlt: "Gloved hands holding a clear orthodontic aligner tray",
   },
   {
     id: "white-label-manufacturing",
@@ -87,6 +91,8 @@ export const SERVICES: Service[] = [
       "Scalable capacity for growing case volume",
     ],
     audience: "Aligner brands & dental labs",
+    image: "/images/dental-prosthetic-bridge-and-3d-model.jpg",
+    imageAlt: "3D-printed dental arch model alongside a ceramic prosthetic set",
   },
   {
     id: "quality-control",
@@ -103,6 +109,8 @@ export const SERVICES: Service[] = [
       "Standardised QC checklist sign-off",
     ],
     audience: "Labs & aligner companies",
+    image: "/images/dentist-analyzing-panoramic-child-dental-xray.jpg",
+    imageAlt: "Dental professional reviewing a panoramic digital X-ray on screen",
   },
   {
     id: "remote-restorative",
@@ -119,6 +127,8 @@ export const SERVICES: Service[] = [
       "Flexible, software-agnostic workflow",
     ],
     audience: "Dental labs & clinics",
+    image: "/images/dental-technician-designing-3d-crown.jpg",
+    imageAlt: "Dental technician designing a 3D crown model on a monitor",
   },
 ];
 

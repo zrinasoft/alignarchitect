@@ -27,6 +27,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Request a consult."
         lede="Tell us what you're working on. We'll come back with a clear, tailored way forward — whether that's a single case or an ongoing partnership."
+        bgImage="/images/abstract-teal-fractal-burst-background.jpg"
       />
 
       <section className="py-16 sm:py-24">

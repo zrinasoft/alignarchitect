@@ -27,6 +27,11 @@ export default function AboutPage() {
         eyebrow="About"
         title="A decade of precision, working quietly behind the profession."
         lede={`AlignArchitect is a B2B treatment-planning and digital-dentistry partner. For ${SITE.yearsExperience} years we've planned aligner cases and designed restorations for dentists, labs, and brands — including collaborations with ${SITE.partners.join(", ")}.`}
+        image={{
+          src: "/images/dental-prosthetic-bridge-and-3d-model.jpg",
+          alt: "Precision 3D-printed dental arch model with a ceramic prosthetic set",
+          label: "CRAFT / PRECISION MODELS",
+        }}
       />
 
       {/* story */}
