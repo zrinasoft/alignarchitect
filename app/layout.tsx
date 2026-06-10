@@ -3,6 +3,8 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { PageLoader } from "@/components/PageLoader";
+import { LoaderDismiss } from "@/components/LoaderDismiss";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -59,9 +61,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <PageLoader />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <LoaderDismiss />
       </body>
     </html>
   );
