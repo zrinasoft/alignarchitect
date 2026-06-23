@@ -27,26 +27,35 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://alignarchitect.com"),
   title: {
-    default: "AlignArchitect — Precision Aligner Treatment Planning",
+    default: "AlignArchitect — Digital Dentistry & Precision Design",
     template: "%s · AlignArchitect",
   },
   description:
-    "B2B aligner treatment planning, white-label manufacturing, plan QC, and remote restorative CAD/CAM for dentists, dental labs, and aligner brands. 10+ years of clinical-grade digital workflow.",
+    "AlignArchitect designs clear aligners, implants, crowns, and dentures from your digital scans — with white-label manufacturing and treatment-plan QC. For dentists, dental labs, and aligner brands; 10+ years and full workflow transparency.",
   keywords: [
     "aligner treatment planning",
     "white-label aligners",
     "dental treatment plan QC",
     "remote CAD/CAM",
+    "digital denture design",
     "private label clear aligners",
     "digital dentistry workflow",
   ],
   openGraph: {
-    title: "AlignArchitect — Precision Aligner Treatment Planning",
+    title: "AlignArchitect — Digital Dentistry & Precision Design",
     description:
-      "Clinical-grade treatment planning, white-label manufacturing, plan QC, and remote restorative design — built for dental professionals.",
+      "Clear aligner, implant, crown, and denture design from your digital scans — plus white-label manufacturing and plan QC. Built for dental professionals.",
     type: "website",
     siteName: "AlignArchitect",
   },
+  icons: {
+    icon: [
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/favicon/site.webmanifest",
 };
 
 export default function RootLayout({

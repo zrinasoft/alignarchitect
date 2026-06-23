@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, Phone, Clock } from "lucide-react";
+import { Mail, Phone, Clock, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -39,6 +39,7 @@ export default function ContactPage() {
               <div className="mt-6 space-y-4">
                 <ContactRow icon={<Mail className="size-5" />} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
                 <ContactRow icon={<Phone className="size-5" />} label="Phone" value={SITE.phone} href={`tel:${SITE.phone}`} />
+                <ContactRow icon={<MapPin className="size-5" />} label="Location" value={SITE.location} />
                 <ContactRow
                   icon={<Clock className="size-5" />}
                   label="Typical response"

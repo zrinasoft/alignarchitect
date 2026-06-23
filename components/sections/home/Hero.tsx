@@ -35,7 +35,7 @@ export function Hero() {
             variants={{ show: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div variants={item}>
-              <Eyebrow>Aligner Treatment Planning</Eyebrow>
+              <Eyebrow>Digital Dentistry &amp; Design</Eyebrow>
             </motion.div>
 
             <motion.h1
@@ -71,9 +71,10 @@ export function Hero() {
               variants={item}
               className="mt-7 max-w-xl text-lede text-graphite-600"
             >
-              The remote treatment-planning partner for dentists, dental labs, and aligner brands.
-              Clinically-defensible setups, white-label manufacturing, plan QC, and remote restorative
-              CAD/CAM — backed by {SITE.yearsExperience} years in digital dentistry.
+              AlignArchitect is a digital-dentistry partner for dentists, labs, and aligner brands —
+              designing clear aligners, implants, crowns, and dentures from your digital scans.
+              Predictable, high-quality outcomes, backed by {SITE.yearsExperience} years and full
+              visibility at every stage.
             </motion.p>
 
             <motion.div variants={item} className="mt-9 flex flex-col gap-3 sm:flex-row">

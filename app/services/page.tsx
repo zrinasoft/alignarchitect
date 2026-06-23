@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
+import { PromoBanner } from "@/components/sections/PromoBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceGlyph } from "@/components/graphics/ServiceGlyph";
 import { FramedImage } from "@/components/graphics/FramedImage";
@@ -12,7 +13,7 @@ import { SERVICES } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Aligner treatment planning, white-label manufacturing, treatment-plan QC, and remote crown, bridge & implant CAD/CAM — the four services behind AlignArchitect.",
+    "Aligner, implant, crown & bridge, and denture design — the four digital-design services behind AlignArchitect. Send us your scans; we return accurate, production-ready design.",
 };
 
 export default function ServicesPage() {
@@ -21,7 +22,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="The engineering team behind your aligner and restorative work."
-        lede="Four specialised services, each built on the same clinical discipline. Use one, or run your whole digital workflow through us."
+        lede="Send us your digital scans and we return accurate, clinically-driven design — aligners, implants, crowns, and dentures. Use one service, or run your whole digital workflow through us."
         image={{
           src: "/images/endodontic-file-dental-handpiece-closeup.jpg",
           alt: "Close-up of a precision dental handpiece and endodontic file",
@@ -103,6 +104,13 @@ export default function ServicesPage() {
           );
         })}
       </div>
+
+      <PromoBanner
+        src="/images/alignarchitects-scan-to-smile-hero.png"
+        alt="AlignArchitects scan-to-smile process — send your scans, we design with precision and deliver custom aligners, plus implant, crown, and denture design."
+        width={1983}
+        height={793}
+      />
 
       <CTASection
         eyebrow="Not sure where to start?"

@@ -17,7 +17,7 @@ band (`app/workflow/page.tsx`), the footer, and the contact page.
 | `SITE.email` | Footer, Contact, mailto links | `hello@alignarchitect.com` | Real business email |
 | `SITE.phone` | Footer, Contact, tel links | `+1 (555) 018-2204` | Real business phone (555 = fictional range) |
 | `SITE.responseTime` | Contact ("Typical response") | `Within 1 business day` | Real typical response time |
-| `METRICS.casesPlanned` | Home stats | `12,000+` | Real cases planned & reviewed |
+| `METRICS.casesPlanned` | Home stats | `Thousands` _(client-stated, not a placeholder)_ | Optional: a precise figure if you have one |
 | `METRICS.planTurnaround` | Home stats | `48–72h` | Real typical plan turnaround |
 | `METRICS.marketsServed` | Home stats | `20+` | Real number of markets served |
 | `METRICS.slaIntakeToSetup` | Workflow SLA band | `48–72h` | Real intake → setup time |
@@ -27,9 +27,22 @@ band (`app/workflow/page.tsx`), the footer, and the contact page.
 > Tip: every provisional value is tagged with a `// PROVISIONAL` comment in `lib/content.ts`.
 > Run `grep -rn "PROVISIONAL" lib` to find them all.
 
+## Resolved from client content (2026-06-23)
+- `SITE.location` is now set to **Lahore, Punjab, Pakistan** (from the client profile) and shows on
+  Contact + Footer — this is real data, not a placeholder.
+- `METRICS.casesPlanned` softened from the invented `12,000+` to the client-stated `Thousands`.
+- Still outstanding placeholders: `SITE.email`, `SITE.phone`, `SITE.responseTime`,
+  `METRICS.planTurnaround`, `METRICS.marketsServed`, and the workflow SLAs (see table above).
+
 ## Other pre-launch checklist
 - `app/layout.tsx` — `metadataBase` is `https://alignarchitect.com`; update to the real domain.
 - Add a real Open Graph / social share image (currently text metadata only).
+- **Brand name:** the client logo + both promo banners read **"AlignArchitects"** (plural), but the
+  site copy, metadata, and the `alignarchitect.com` domain use **"AlignArchitect"** (singular) — decide
+  which is canonical and reconcile (the domain is the one piece outside the codebase).
+- Replace the **reconstructed** nav lockup `public/images/logo-horizontal.png` with an official
+  horizontal/transparent logo if the client has one; compress the promo banners to WebP and consider a
+  native, responsive rebuild of the "scan to smile" banner for small screens (see `ASSETS.md`).
 - Confirm the "Collaborated with" partner mentions (Straumann/Zenyum/Softsmile) are cleared for public use.
 - Wire the contact form: `components/sections/ContactForm.tsx` → `submitConsultRequest()` (EmailJS
   recommended for a static host).

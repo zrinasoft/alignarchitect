@@ -1,41 +1,62 @@
 # AlignArchitect - Image Assets
 
 ## Usage Guidelines for Claude
+
 - Always use these images in the sections suggested in each asset's description
 - Prefer real photos over abstract textures wherever possible
-- Abstract backgrounds (teal fractal, cyan geometric, hex mesh) are for section 
+- Abstract backgrounds (teal fractal, cyan geometric, hex mesh) are for section
   backgrounds/overlays only -- never as standalone content images
 - All images are in `/public/images/` and are free to use (licensed)
 - Use `object-fit: cover` for all images, never stretch
 
 ## Recommended Section Mapping
-| Image | Recommended Section |
-|-------|-------------------|
-| `gloved-hands-holding-clear-dental-aligner` | Hero or Services > Aligner Planning card |
-| `dental-technician-designing-3d-crown` | Services > CAD/CAM card or Workflow section |
-| `dental-prosthetic-bridge-and-3d-model` | Services > Crown/Bridge/Implant card |
-| `dentist-analyzing-panoramic-child-xray` | Services > QC & Review card |
-| `abstract-teal-fractal-burst-background` | Hero background overlay |
-| `abstract-cyan-geometric-lines-background` | Dark feature section background |
-| `hexagonal-metal-mesh-pattern-closeup` | Texture overlay on dark sections |
+
+| Image                                       | Recommended Section                         |
+| ------------------------------------------- | ------------------------------------------- |
+| `gloved-hands-holding-clear-dental-aligner` | Hero or Services > Aligner Planning card    |
+| `dental-technician-designing-3d-crown`      | Services > CAD/CAM card or Workflow section |
+| `dental-prosthetic-bridge-and-3d-model`     | Services > Crown/Bridge/Implant card        |
+| `dentist-analyzing-panoramic-child-xray`    | Services > QC & Review card                 |
+| `abstract-teal-fractal-burst-background`    | Hero background overlay                     |
+| `abstract-cyan-geometric-lines-background`  | Dark feature section background             |
+| `hexagonal-metal-mesh-pattern-closeup`      | Texture overlay on dark sections            |
 
 ## Current usage (wired up)
-| Image | Used in |
-|-------|---------|
-| `gloved-hands-holding-clear-dental-aligner` | Services → Aligner Planning block |
-| `dental-prosthetic-bridge-and-3d-model` | Services → White-Label block · About hero |
-| `dentist-analyzing-panoramic-child-dental-xray` | Services → QC & Review block |
-| `dental-technician-designing-3d-crown` | Services → CAD/CAM block · Workflow hero |
-| `endodontic-file-dental-handpiece-closeup` | Services hero (precision) |
-| `abstract-teal-fractal-burst-background` | Contact hero (bg overlay) |
-| `abstract-cyan-geometric-lines-background` | Closing CTA section (dark bg texture) |
-| `hexagonal-metal-mesh-pattern-closeup` | **Not used yet** — 3.4 MB, compress to WebP first |
+
+| Image                                           | Used in                                           |
+| ----------------------------------------------- | ------------------------------------------------- |
+| `gloved-hands-holding-clear-dental-aligner`     | Services → Aligner Design block                   |
+| `dental-prosthetic-bridge-and-3d-model`         | Services → Denture Design block · About hero      |
+| `dentist-analyzing-panoramic-child-dental-xray` | Services → Implant Design block                   |
+| `dental-technician-designing-3d-crown`          | Services → Crown & Bridge Design block · Workflow hero |
+| `endodontic-file-dental-handpiece-closeup`      | Services hero (precision)                         |
+| `abstract-teal-fractal-burst-background`        | Contact hero (bg overlay)                         |
+| `abstract-cyan-geometric-lines-background`      | Closing CTA section (dark bg texture)             |
+| `hexagonal-metal-mesh-pattern-closeup`          | **Not used yet** — 3.4 MB, compress to WebP first |
+| `logo` (client source, white bg)                | Brand logo — processed into the transparent crops below |
+| `logo-mark` (derived, transparent)              | Symbol crop — composited into the horizontal lockup |
+| `logo-horizontal` (derived, transparent)        | **Header** — symbol + "AlignArchitects" lockup (fits the nav bar) |
+| `logo-trim` (derived, transparent)              | **Footer** — full stacked lockup on a white chip (reads on dark) |
+| `clear-aligner-dental-hero-banner`              | **Home** → promo banner band before the CTA (links to contact) |
+| `alignarchitects-scan-to-smile-hero`            | **Services** → promo banner band before the CTA (links to contact) |
 
 > Photos render via `next/image` (config has `images.unoptimized` for static export, so files
 > are served at original size). Before launch, compress/convert to WebP to cut page weight —
 > `dental-technician-designing-3d-crown` (1.2 MB) and `hexagonal-metal-mesh` (3.4 MB) especially.
 
+> **Logo:** `logo.png` is the client's master logo (stacked lockup on a white background). It was
+> flood-filled to transparency with GraphicsMagick, then split/recomposited into `logo-mark.png`
+> (symbol), `logo-horizontal.png` (symbol + wordmark side-by-side, used in the nav), and
+> `logo-trim.png` (full stacked lockup, used in the footer). The old SVG `Wordmark` component was
+> removed and replaced by `graphics/BrandLogo.tsx`.
+> ⚠️ The logo and both banners spell the brand **"AlignArchitects"** (plural) while the rest of the
+> site copy uses **"AlignArchitect"** (singular) — reconcile before launch.
+> **Banners** (`clear-aligner-dental-hero-banner` 340 KB, `alignarchitects-scan-to-smile-hero` 488 KB)
+> have baked-in text: compress to WebP, and consider a native, responsive rebuild for small screens
+> where the baked text gets hard to read.
+
 ## What's Missing (add later)
+
 - [ ] Team / founder photo
 - [ ] Partner logos (Straumann, Zenyum, Softsmile)
 - [ ] Before/after treatment plan screenshots
@@ -118,6 +139,21 @@
     "filename": "hexagonal-metal-mesh-pattern-closeup",
     "description": "Macro view of a hexagonal honeycomb-style mesh with a dense perforated texture, creating a striking geometric pattern across the frame. The mood is modern, industrial, and high-tech, with dominant black, silver, and cool metallic tones. It works well as an abstract website background, technology hero section, or futuristic design texture.",
     "tags": ["hexagonal-pattern", "metal-mesh", "abstract-background"]
+  },
+  "./public/images/clear-aligner-dental-hero-banner.png": {
+    "filename": "clear-aligner-dental-hero-banner",
+    "description": "This promotional banner features a radiant, smiling woman alongside clear dental aligners, highlighting the AlignArchitects brand and their 'Scan to Smile' delivery service. The mood is professional, clean, and uplifting, utilizing a dominant color palette of crisp white and varying shades of trust-inspiring blue. Its wide horizontal format, service icons, and clear value propositions make it perfectly suited for a website hero section or primary promotional banner.",
+    "tags": ["clear aligners", "dental services", "hero banner"]
+  },
+  "./public/images/alignarchitects-scan-to-smile-hero.png": {
+    "filename": "alignarchitects-scan-to-smile-hero",
+    "description": "This image, referenced as Banner (2).png, is a clean and professional hero banner for AlignArchitects featuring a smiling woman alongside a clear aligner case. The dominant white and blue color palette establishes a trustworthy, optimistic tone while clearly illustrating a four-step dental aligner delivery process. Its wide, information-rich layout makes it perfectly suited for a primary website hero section or promotional banner.",
+    "tags": ["clear aligners", "dental services", "hero banner"]
+  },
+  "./public/images/logo.png": {
+    "filename": "logo",
+    "description": "This image is main site logo.",
+    "tags": ["logo"]
   }
 }
 ```

@@ -11,9 +11,9 @@ export function ServicesOverview() {
     <section id="services" className="py-24 sm:py-32">
       <Container>
         <SectionHeading
-          eyebrow="What we do"
-          title="Four services, one standard of precision."
-          lede="From the first scan to a finished restoration, we operate as the remote engineering team behind your aligner and restorative work."
+          eyebrow="What we design"
+          title="From scan to smile, across four services."
+          lede="We bring digital dentistry and precision design together — send us your scans and we return accurate, clinically-driven design across aligners, implants, crowns, and dentures."
         />
 
         <RevealGroup

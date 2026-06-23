@@ -1,12 +1,17 @@
 # AlignArchitect
 
-Marketing website for **AlignArchitect** — a B2B dental aligner treatment-planning company. Clients
-are **dentists, dental labs, and companies wanting private-label aligners** (not patients).
+Marketing website for **AlignArchitect** — a B2B **digital-dentistry** company (aligner treatment
+planning, CAD/CAM design, and manufacturing). Clients are **dentists, orthodontists, dental labs, and
+companies wanting private-label aligners** (not patients).
 
 ## Business context
-Four services: (1) aligner treatment planning, (2) white-label aligner manufacturing, (3) quality
-control & review of third-party treatment plans, (4) remote crown/bridge/implant CAD/CAM design.
-10+ years of experience; collaborations with Straumann, Zenyum, and Softsmile.
+The site's headline services (the `SERVICES` array — what drives the home + services pages) are the
+client's four **design** offerings: (1) Aligner Design, (2) Implant Design, (3) Crown & Bridge Design,
+(4) Denture Design. The company also provides **white-label aligner manufacturing** and **treatment-
+plan quality control / review** — these are presented as *capabilities* (About page) and *workflow*
+steps, not as service cards. 10+ years of experience (the company was founded in 2026; the team
+carries the decade); collaborations with Straumann, Zenyum, and Softsmile. HQ: Lahore, Punjab,
+Pakistan. **Transparency** — full visibility across the workflow — is a core stated value.
 
 ## Stack
 - Next.js 16 (App Router) · React 19 · TypeScript
@@ -26,7 +31,8 @@ control & review of third-party treatment plans, (4) remote crown/bridge/implant
 This is a **fully static site** (`output: "export"` in `next.config.ts`) — no API routes,
 server actions, or middleware. `pnpm build` emits `./out` as plain HTML/CSS/JS, hostable on any
 static host (nginx, GitHub Pages, Netlify, S3, Cloudflare Pages). `trailingSlash: true` produces
-`/<route>/index.html` paths for maximum portability; `images.unoptimized` is on (no `next/image` in use).
+`/<route>/index.html` paths for maximum portability; `images.unoptimized` is on, so `next/image`
+(used for photos, the logo, and the promo banners) serves files at original size — no build-time resizing.
 Note: `next start` does **not** work with static export — use `pnpm preview` (or any static server) instead.
 
 ### Dev-server note
@@ -40,9 +46,9 @@ If it persists, also clear the dev cache: `rm -rf .next`.
 ```
 app/                  layout + 5 routes (/, /services, /workflow, /about, /contact)
 components/ui/        primitives (Button, Container, Eyebrow, SectionHeading, Reveal, Stat)
-components/graphics/  Wordmark, HeroArchForm, ServiceGlyph
+components/graphics/  BrandLogo, HeroArchForm, ServiceGlyph, FramedImage
 components/layout/    Header, Footer
-components/sections/  PageHero, CTASection, ContactForm, sections/home/*
+components/sections/  PageHero, CTASection, ContactForm, PromoBanner, WorkflowTimeline, sections/home/*
 lib/content.ts        ALL site copy (single source of truth)
 lib/motion.ts         shared Framer Motion variants
 ```

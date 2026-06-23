@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Wordmark } from "@/components/graphics/Wordmark";
+import { BrandLogo } from "@/components/graphics/BrandLogo";
 import { SERVICES, NAV, SITE } from "@/lib/content";
 
 export function Footer() {
@@ -11,7 +11,9 @@ export function Footer() {
         {/* link columns */}
         <div className="grid grid-cols-2 gap-10 pb-12 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
-            <Wordmark onDark />
+            <div className="inline-flex rounded-xl bg-white p-3 shadow-soft">
+              <BrandLogo variant="full" className="h-11" />
+            </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-graphite-400">
               Clinical-grade aligner treatment planning, white-label manufacturing, plan QC, and remote
               restorative CAD/CAM for dental professionals.
@@ -37,6 +39,7 @@ export function Footer() {
           <FooterCol title="Contact">
             <FooterLink href={`mailto:${SITE.email}`}>{SITE.email}</FooterLink>
             <FooterLink href={`tel:${SITE.phone}`}>{SITE.phone}</FooterLink>
+            <li className="text-sm leading-relaxed text-graphite-400">{SITE.location}</li>
           </FooterCol>
         </div>
 

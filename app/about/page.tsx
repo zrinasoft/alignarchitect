@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const CAPABILITIES = [
   { title: "Treatment planning", note: "Across leading clear-aligner systems" },
-  { title: "Restorative CAD/CAM", note: "Crown, bridge & implant design" },
+  { title: "Restorative CAD/CAM", note: "Crown, bridge, implant & denture design" },
   { title: "Quality control", note: "Independent clinical plan review" },
   { title: "White-label production", note: "Private-label aligner manufacturing" },
 ];
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="A decade of precision, working quietly behind the profession."
-        lede={`AlignArchitect is a B2B treatment-planning and digital-dentistry partner. For ${SITE.yearsExperience} years we've planned aligner cases and designed restorations for dentists, labs, and brands — including collaborations with ${SITE.partners.join(", ")}.`}
+        lede={`AlignArchitect is a digital-dentistry partner helping dental professionals deliver predictable, high-quality outcomes. For ${SITE.yearsExperience} years we've planned aligner cases and designed restorations for dentists, labs, and brands — including collaborations with ${SITE.partners.join(", ")}.`}
         image={{
           src: "/images/dental-prosthetic-bridge-and-3d-model.jpg",
           alt: "Precision 3D-printed dental arch model with a ceramic prosthetic set",
@@ -47,15 +47,23 @@ export default function AboutPage() {
                   of the plan decides the quality of the outcome.
                 </p>
                 <p>
-                  Over {SITE.yearsExperience} years, that conviction has carried us through thousands of
-                  cases and collaborations with established names in the field. We&apos;ve seen what
-                  separates a plan that tracks from one that stalls — and we&apos;ve built our process
-                  around it.
+                  AlignArchitect was founded in {SITE.founded}, but our team carries more than a decade
+                  of aligner treatment-planning experience — thousands of cases, from simple corrections
+                  to complex orthodontic treatments, and collaborations with internationally recognised
+                  names like {SITE.partners.join(", ")}.
                 </p>
                 <p>
-                  Today we work as the invisible engineering team behind dentists, labs, and aligner
-                  brands — planning, reviewing, manufacturing, and designing, so our partners can focus
-                  on their patients and their business.
+                  Transparency sits at the core of how we work. Successful partnerships are built on
+                  trust, clear communication, accountability, and consistent results — so we give
+                  clinicians, laboratories, and dental companies complete visibility at every stage of
+                  the workflow, and confidence in both the process and the outcome.
+                </p>
+                <p>
+                  Today we work as the invisible engineering team behind dentists, orthodontists, labs,
+                  and aligner brands — treatment planning, white-label manufacturing, plan QC, and
+                  CAD/CAM design for crowns, bridges, implants, and dentures. From digital scans to
+                  finished appliances, we deliver scalable, cost-effective, clinically driven work — so
+                  our partners can focus on their patients and their growth.
                 </p>
               </div>
             </Reveal>

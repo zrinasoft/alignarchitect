@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { NAV } from "@/lib/content";
-import { Wordmark } from "@/components/graphics/Wordmark";
+import { BrandLogo } from "@/components/graphics/BrandLogo";
 import { Button } from "@/components/ui/Button";
 
 export function Header() {
@@ -38,7 +38,7 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6 sm:px-8 lg:px-12">
-          <Wordmark />
+          <BrandLogo variant="horizontal" priority className="h-8 sm:h-9" />
 
           <nav className="hidden items-center gap-1 md:flex">
             {NAV.map((link) => {
