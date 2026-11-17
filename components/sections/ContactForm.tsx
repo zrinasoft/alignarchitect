@@ -3,7 +3,9 @@
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
-import { SERVICES } from "@/lib/content";
+import emailjs from "@emailjs/browser";
+import { SERVICES, SITE } from "@/lib/content";
+import { EMAILJS, emailjsConfigured } from "@/lib/emailjs";
 
 type Fields = {
   name: string;
@@ -28,14 +30,26 @@ const EMPTY: Fields = {
 const ROLES = ["Dentist / Orthodontist", "Dental lab", "Aligner brand", "Other"];
 
 /**
- * Submission stub. The form is intentionally not wired to a backend yet.
- * TODO: wire submission — drop in EmailJS (emailjs.send) or a Next.js Server
- * Action / Route Handler here. Keep the (data) => Promise signature.
+ * Sends the request through EmailJS (config in lib/emailjs.ts). Throws on
+ * failure so the form can show an error instead of a false "sent" state.
  */
 async function submitConsultRequest(data: Fields): Promise<void> {
-  // Simulated latency so the UI states are exercised. Replace with a real call.
-  if (process.env.NODE_ENV === "development") console.debug("consult request", data);
-  await new Promise((resolve) => setTimeout(resolve, 900));
+  if (!emailjsConfigured) {
+    throw new Error("EmailJS is not configured — fill in lib/emailjs.ts.");
+  }
+  await emailjs.send(
+    EMAILJS.serviceId,
+    EMAILJS.templateId,
+    {
+      name: data.name.trim(),
+      email: data.email.trim(),
+      organisation: data.organisation.trim() || "—",
+      role: data.role,
+      service: data.service || "—",
+      message: data.message.trim(),
+    },
+    { publicKey: EMAILJS.publicKey },
+  );
 }
 
 function validate(f: Fields): Errors {
@@ -52,7 +66,7 @@ function validate(f: Fields): Errors {
 export function ContactForm() {
   const [fields, setFields] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const update = (key: keyof Fields, value: string) => {
     setFields((f) => ({ ...f, [key]: value }));
@@ -67,9 +81,14 @@ export function ContactForm() {
       return;
     }
     setStatus("submitting");
-    await submitConsultRequest(fields);
-    setStatus("success");
-    setFields(EMPTY);
+    try {
+      await submitConsultRequest(fields);
+      setStatus("success");
+      setFields(EMPTY);
+    } catch (err) {
+      console.error("Contact form send failed", err);
+      setStatus("error"); // keep the visitor's input so they can retry
+    }
   };
 
   return (
@@ -192,6 +211,15 @@ export function ContactForm() {
                 </>
               )}
             </button>
+            {status === "error" && (
+              <p role="alert" className="text-sm text-red-500">
+                Sorry, your request couldn&apos;t be sent. Please try again, or email us at{" "}
+                <a href={`mailto:${SITE.email}`} className="font-medium underline">
+                  {SITE.email}
+                </a>
+                .
+              </p>
+            )}
             <p className="text-xs text-graphite-400">
               We&apos;ll only use your details to respond to this request.
             </p>

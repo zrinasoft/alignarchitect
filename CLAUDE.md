@@ -65,6 +65,8 @@ lib/motion.ts         shared Framer Motion variants
   `DESIGN.md` for the full system. Keep teal as a sparing accent.
 - Accessibility: semantic HTML, labelled inputs, visible focus states, `aria-*` on interactive SVG.
 
-## Not-yet-wired
-- Contact form is **UI only** — `components/sections/ContactForm.tsx` → `submitConsultRequest()` is a
-  stub. Wire EmailJS or a Server Action there (keep the `(data) => Promise<void>` signature).
+## Contact form (EmailJS)
+- `components/sections/ContactForm.tsx` → `submitConsultRequest()` sends via `@emailjs/browser`.
+  IDs/public key live in `lib/emailjs.ts` (public by design; restrict allowed domains in the
+  EmailJS dashboard). Template variables: `name email organisation role service message`.
+  Until all three IDs are filled in, submissions show the error state (never a fake success).
