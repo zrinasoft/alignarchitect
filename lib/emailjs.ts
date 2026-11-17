@@ -11,7 +11,7 @@
  */
 export const EMAILJS = {
   serviceId: "service_h9iusub",
-  templateId: "", // TODO: EmailJS → Email Templates → your template → Template ID (template_…)
+  templateId: "template_rf8qn6p",
   publicKey: "", // TODO: EmailJS → Account → General → Public Key
 } as const;
 
