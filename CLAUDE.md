@@ -45,7 +45,7 @@ If it persists, also clear the dev cache: `rm -rf .next`.
 ## Project structure
 ```
 app/                  layout + 5 routes (/, /services, /workflow, /about, /contact)
-components/ui/        primitives (Button, Container, Eyebrow, SectionHeading, Reveal, Stat)
+components/ui/        primitives (Button, Container, Eyebrow, SectionHeading, Reveal, Stat, YouTubeEmbed)
 components/graphics/  BrandLogo, HeroArchForm, ServiceGlyph, FramedImage
 components/layout/    Header, Footer
 components/sections/  PageHero, CTASection, ContactForm, PromoBanner, WorkflowTimeline, sections/home/*
@@ -55,7 +55,7 @@ lib/motion.ts         shared Framer Motion variants
 
 ## Conventions
 - **Server Components by default.** Add `"use client"` only for motion/state: `Header`,
-  `ContactForm`, `Hero`, `Reveal`, `Stat`, `HeroArchForm`.
+  `ContactForm`, `Hero`, `Reveal`, `Stat`, `HeroArchForm`, `YouTubeEmbed`.
 - **Copy lives in `lib/content.ts`** — don't hardcode marketing strings in JSX.
 - **Copy rule:** state only verified facts. Any unknown metric is a visible `{{token}}` tracked in
   `PLACEHOLDERS.md`. Do not invent stats, turnaround times, or claims.

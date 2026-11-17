@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/home/Hero";
 import { TrustBar } from "@/components/sections/home/TrustBar";
 import { ServicesOverview } from "@/components/sections/home/ServicesOverview";
+import { CaseShowcase } from "@/components/sections/home/CaseShowcase";
 import { WorkflowTeaser } from "@/components/sections/home/WorkflowTeaser";
 import { WhyUs } from "@/components/sections/home/WhyUs";
 import { AudienceSplit } from "@/components/sections/home/AudienceSplit";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <ServicesOverview />
+      <CaseShowcase />
       <WorkflowTeaser />
       <WhyUs />
       <AudienceSplit />

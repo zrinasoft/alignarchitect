@@ -174,6 +174,28 @@ export const WORKFLOW: WorkflowStep[] = [
   },
 ];
 
+/* ── Case showcase (YouTube) ──────────────────────────────────────────── */
+
+export type CaseVideo = {
+  /** YouTube video ID — the part after youtu.be/ (drop any ?si=… suffix). */
+  youtubeId: string;
+  title: string;
+};
+
+export const CASE_SHOWCASE = {
+  eyebrow: "Case showcase",
+  title: "See the planning, stage by stage.",
+  lede: "Watch aligner virtual setups from our planning desk — how each malocclusion is staged and corrected, from the starting bite to the final occlusion.",
+};
+
+// Order matches the client's channel list. To add a video, append one line.
+export const CASE_VIDEOS: CaseVideo[] = [
+  { youtubeId: "eh6nQJT2Cmo", title: "Deep Bite & Crossbite Correction" },
+  { youtubeId: "o_bckXSsxNc", title: "Class Correction" },
+  { youtubeId: "DQVyBzEqOgM", title: "Overjet & Molar Occlusal Correction" },
+  { youtubeId: "qlGgxBI5Gx0", title: "Crossbite, Midline & Molar Occlusal Correction" },
+];
+
 /* ── Audiences ────────────────────────────────────────────────────────── */
 
 export type Audience = {
