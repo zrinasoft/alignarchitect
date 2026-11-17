@@ -12,7 +12,7 @@
 export const EMAILJS = {
   serviceId: "service_h9iusub",
   templateId: "template_rf8qn6p",
-  publicKey: "", // TODO: EmailJS → Account → General → Public Key
+  publicKey: "w0MAS3SrQiqscNp22",
 } as const;
 
 export const emailjsConfigured = Boolean(
