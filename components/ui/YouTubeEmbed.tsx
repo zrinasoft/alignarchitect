@@ -55,10 +55,6 @@ export function YouTubeEmbed({
           />
           <span
             aria-hidden
-            className="absolute inset-0 bg-ink/25 transition-colors duration-300 group-hover:bg-ink/10"
-          />
-          <span
-            aria-hidden
             className="absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-teal text-white shadow-glow transition-transform duration-300 group-hover:scale-110"
           >
             <Play className="size-6 translate-x-0.5 fill-current" />
