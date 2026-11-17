@@ -14,8 +14,6 @@ band (`app/workflow/page.tsx`), the footer, and the contact page.
 
 | Key (`lib/content.ts`) | Shows on | Provisional value now in place | Replace with |
 |---|---|---|---|
-| `SITE.email` | Footer, Contact, mailto links | `hello@alignarchitect.com` | Real business email |
-| `SITE.phone` | Footer, Contact, tel links | `+1 (555) 018-2204` | Real business phone (555 = fictional range) |
 | `SITE.responseTime` | Contact ("Typical response") | `Within 1 business day` | Real typical response time |
 | `METRICS.casesPlanned` | Home stats | `Thousands` _(client-stated, not a placeholder)_ | Optional: a precise figure if you have one |
 | `METRICS.planTurnaround` | Home stats | `48–72h` | Real typical plan turnaround |
@@ -31,8 +29,12 @@ band (`app/workflow/page.tsx`), the footer, and the contact page.
 - `SITE.location` is now set to **Lahore, Punjab, Pakistan** (from the client profile) and shows on
   Contact + Footer — this is real data, not a placeholder.
 - `METRICS.casesPlanned` softened from the invented `12,000+` to the client-stated `Thousands`.
-- Still outstanding placeholders: `SITE.email`, `SITE.phone`, `SITE.responseTime`,
+- Still outstanding placeholders: `SITE.responseTime`,
   `METRICS.planTurnaround`, `METRICS.marketsServed`, and the workflow SLAs (see table above).
+
+## Resolved from client content (2026-11-17)
+- `SITE.email` → `abdulmannan8947@gmail.com` and `SITE.phone` → `+92 300 9472143` (client-provided).
+  Shown in the Footer (every page) and on Contact; `SITE.phoneHref` holds the tel: form.
 
 ## Other pre-launch checklist
 - `app/layout.tsx` — `metadataBase` is `https://alignarchitect.com`; update to the real domain.

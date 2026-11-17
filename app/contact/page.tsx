@@ -38,7 +38,7 @@ export default function ContactPage() {
               <Eyebrow>Direct contact</Eyebrow>
               <div className="mt-6 space-y-4">
                 <ContactRow icon={<Mail className="size-5" />} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
-                <ContactRow icon={<Phone className="size-5" />} label="Phone" value={SITE.phone} href={`tel:${SITE.phone}`} />
+                <ContactRow icon={<Phone className="size-5" />} label="Phone" value={SITE.phone} href={`tel:${SITE.phoneHref}`} />
                 <ContactRow icon={<MapPin className="size-5" />} label="Location" value={SITE.location} />
                 <ContactRow
                   icon={<Clock className="size-5" />}

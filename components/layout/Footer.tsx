@@ -38,7 +38,7 @@ export function Footer() {
 
           <FooterCol title="Contact">
             <FooterLink href={`mailto:${SITE.email}`}>{SITE.email}</FooterLink>
-            <FooterLink href={`tel:${SITE.phone}`}>{SITE.phone}</FooterLink>
+            <FooterLink href={`tel:${SITE.phoneHref}`}>{SITE.phone}</FooterLink>
             <li className="text-sm leading-relaxed text-graphite-400">{SITE.location}</li>
           </FooterCol>
         </div>

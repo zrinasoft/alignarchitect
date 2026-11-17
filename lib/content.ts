@@ -10,10 +10,11 @@
 export const SITE = {
   name: "AlignArchitect",
   tagline: "Precision digital dentistry & design",
-  // PROVISIONAL contact details — placeholder data, replace before launch.
-  // See PLACEHOLDERS.md for the full trace.
-  email: "hello@alignarchitect.com", // PROVISIONAL
-  phone: "+1 (555) 018-2204", // PROVISIONAL (555 = reserved fictional range)
+  // Contact details — client-provided (2026-11-17).
+  email: "abdulmannan8947@gmail.com",
+  phone: "+92 300 9472143",
+  /** Digits-only form for tel: links. Keep in sync with `phone`. */
+  phoneHref: "+923009472143",
   responseTime: "Within 1 business day", // PROVISIONAL
   location: "Lahore, Punjab, Pakistan",
   founded: "2026",
