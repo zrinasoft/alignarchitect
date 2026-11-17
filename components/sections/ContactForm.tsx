@@ -95,7 +95,7 @@ export function ContactForm() {
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-6 text-sm font-medium text-teal-600 hover:text-teal-700"
+              className="mt-6 text-sm font-medium text-teal-600 cursor-pointer hover:text-teal-700"
             >
               Send another request
             </button>
@@ -178,7 +178,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium tracking-tight text-paper transition-all duration-300 hover:bg-teal-700 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-70"
+              className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium tracking-tight text-paper cursor-pointer transition-all duration-300 hover:bg-teal-700 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === "submitting" ? (
                 <>
