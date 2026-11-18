@@ -67,6 +67,7 @@ lib/motion.ts         shared Framer Motion variants
 
 ## Contact form (EmailJS)
 - `components/sections/ContactForm.tsx` → `submitConsultRequest()` sends via `@emailjs/browser`.
-  IDs/public key live in `lib/emailjs.ts` (public by design; restrict allowed domains in the
-  EmailJS dashboard). Template variables: `name email organisation role service message`.
+  IDs/public key come from `NEXT_PUBLIC_EMAILJS_*` env vars (`.env.local`, template in
+  `.env.example`; set them in the host's build env too). Public by design — inlined into client JS;
+  restrict allowed domains in the EmailJS dashboard. Template variables: `name email organisation role service message`.
   Until all three IDs are filled in, submissions show the error state (never a fake success).
