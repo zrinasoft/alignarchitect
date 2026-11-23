@@ -7,13 +7,15 @@ type StatProps = {
   value: string;
   suffix?: string;
   label: string;
+  onDark?: boolean;
+  className?: string;
 };
 
 /**
  * Animated stat. If `value` is numeric it counts up on first view; if it's a
  * {{placeholder}} token (or any non-numeric string) it renders verbatim.
  */
-export function Stat({ value, suffix, label }: StatProps) {
+export function Stat({ value, suffix, label, onDark = false, className = "" }: StatProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const reduce = useReducedMotion();
@@ -41,12 +43,18 @@ export function Stat({ value, suffix, label }: StatProps) {
   }, [inView, isNumeric, numeric, reduce]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className={className}>
       <div className="font-display text-h2 font-medium leading-none tracking-tight tabular-nums">
         {isNumeric ? display : value}
-        {suffix && <span className="text-teal">{suffix}</span>}
+        {suffix && <span className={onDark ? "text-teal-300" : "text-teal"}>{suffix}</span>}
       </div>
-      <p className="mt-3 text-sm leading-snug text-graphite-500 max-w-[22ch]">{label}</p>
+      <p
+        className={`mt-3 max-w-[22ch] text-sm leading-snug ${
+          onDark ? "text-graphite-300" : "text-graphite-500"
+        }`}
+      >
+        {label}
+      </p>
     </div>
   );
 }

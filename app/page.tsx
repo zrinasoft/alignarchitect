@@ -1,22 +1,28 @@
 import { Hero } from "@/components/sections/home/Hero";
-import { TrustBar } from "@/components/sections/home/TrustBar";
+import { ServingStrip } from "@/components/sections/home/ServingStrip";
+import { IntroSplit } from "@/components/sections/home/IntroSplit";
 import { ServicesOverview } from "@/components/sections/home/ServicesOverview";
+import { StatsBand } from "@/components/sections/home/StatsBand";
+import { WhyUs } from "@/components/sections/home/WhyUs";
 import { CaseShowcase } from "@/components/sections/home/CaseShowcase";
 import { WorkflowTeaser } from "@/components/sections/home/WorkflowTeaser";
-import { WhyUs } from "@/components/sections/home/WhyUs";
 import { AudienceSplit } from "@/components/sections/home/AudienceSplit";
 import { PromoBanner } from "@/components/sections/PromoBanner";
 import { CTASection } from "@/components/sections/CTASection";
 
+// Section rhythm (backgrounds): dark hero → white strip → tint → white → dark stats →
+// white → dark videos → paper → tint → paper banner → teal CTA → dark footer.
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
+      <ServingStrip />
+      <IntroSplit />
       <ServicesOverview />
+      <StatsBand />
+      <WhyUs />
       <CaseShowcase />
       <WorkflowTeaser />
-      <WhyUs />
       <AudienceSplit />
       <PromoBanner
         src="/images/clear-aligner-dental-hero-banner.png"

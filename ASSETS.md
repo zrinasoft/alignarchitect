@@ -23,16 +23,20 @@
 
 ## Current usage (wired up)
 
+All photos are served as **WebP** (`<name>.webp`, ≤1800px, generated from the `.jpg` originals,
+which stay in the repo as sources but aren't referenced).
+
 | Image                                           | Used in                                           |
 | ----------------------------------------------- | ------------------------------------------------- |
-| `gloved-hands-holding-clear-dental-aligner`     | Services → Aligner Design block                   |
-| `dental-prosthetic-bridge-and-3d-model`         | Services → Denture Design block · About hero      |
-| `dentist-analyzing-panoramic-child-dental-xray` | Services → Implant Design block                   |
-| `dental-technician-designing-3d-crown`          | Services → Crown & Bridge Design block · Workflow hero |
-| `endodontic-file-dental-handpiece-closeup`      | Services hero (precision)                         |
-| `abstract-teal-fractal-burst-background`        | Contact hero (bg overlay)                         |
-| `abstract-cyan-geometric-lines-background`      | Closing CTA section (dark bg texture)             |
-| `hexagonal-metal-mesh-pattern-closeup`          | **Not used yet** — 3.4 MB, compress to WebP first |
+| `xray-panoramic-dark` (derived)                 | **Home hero** backdrop: crop of the panoramic X-ray photo, grayscale + crushed levels |
+| `gloved-hands-holding-clear-dental-aligner`     | Home → intro collage inset, Aligner service card · Services → Aligner block |
+| `dentist-analyzing-panoramic-child-dental-xray` | Home → Implant service card · Services → Implant block |
+| `dental-technician-designing-3d-crown`          | Home → intro collage, Crown & Bridge card · Services → Crown block · Workflow hero |
+| `dental-prosthetic-bridge-and-3d-model`         | Home → Denture card, "Why us" photo · Services → Denture block · About hero |
+| `endodontic-file-dental-handpiece-closeup`      | Services hero                                     |
+| `hexagonal-metal-mesh-pattern-closeup`          | Home → dark stats band texture (grayscale WebP)   |
+| `abstract-teal-fractal-burst-background`        | Contact hero (bg texture)                         |
+| `abstract-cyan-geometric-lines-background`      | Closing CTA band (texture)                        |
 | `logo` (client source, white bg)                | Brand logo — processed into the transparent crops below |
 | `logo-mark` (derived, transparent)              | Symbol crop — composited into the horizontal lockup |
 | `logo-horizontal` (derived, transparent)        | **Header** — symbol + "AlignArchitects" lockup (fits the nav bar) |
@@ -41,8 +45,7 @@
 | `alignarchitects-scan-to-smile-hero`            | **Services** → promo banner band before the CTA (links to contact) |
 
 > Photos render via `next/image` (config has `images.unoptimized` for static export, so files
-> are served at original size). Before launch, compress/convert to WebP to cut page weight —
-> `dental-technician-designing-3d-crown` (1.2 MB) and `hexagonal-metal-mesh` (3.4 MB) especially.
+> are served at original size), which is why the pages reference the pre-shrunk WebP versions.
 
 > **Logo:** `logo.png` is the client's master logo (stacked lockup on a white background). It was
 > flood-filled to transparency with GraphicsMagick, then split/recomposited into `logo-mark.png`

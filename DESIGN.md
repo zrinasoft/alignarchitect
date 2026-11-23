@@ -1,8 +1,14 @@
 # AlignArchitect — Design System
 
-**Concept:** precision engineering meets premium healthcare. Light, typography-forward, generous
-whitespace, hairline grids, with strategic **dark spotlight sections** for rhythm. Eye-catching but
-never flashy. Not a patient-facing clinic site — this is B2B for dental professionals.
+**Concept:** precision engineering meets premium healthcare. **Photo-led and clearly sectioned.**
+Pages open on a dark photographic hero, and each following section changes background so the page
+reads as distinct chapters (see `app/page.tsx` for the home rhythm). Use real dental imagery
+wherever a section can carry it. Eye-catching but never flashy. Not a patient-facing clinic site:
+this is B2B for dental professionals. Reference sites and rationale: `docs/inspiration.md`.
+
+**Section backgrounds:** `bg-black`/`bg-ink` (dark: hero, stats, videos, footer) · `bg-white` ·
+`bg-paper` · `bg-teal-50/60` (tint) · teal gradient (closing CTA only). Avoid putting two sections
+with the same background next to each other.
 
 All tokens are defined CSS-first in **`app/globals.css`** via Tailwind v4's `@theme` block (there is
 no `tailwind.config.js`). Use the generated utilities (`text-ink`, `bg-teal`, `text-h2`, etc.).
@@ -53,8 +59,9 @@ tight negative letter-spacing and near-1.0 leading.
 - Variants live in `lib/motion.ts`: `fadeRise`, `fadeRiseSm`, `stagger()`, shared `EASE`
   (`cubic-bezier(0.22,1,0.36,1)`).
 - Reveal primitives in `components/ui/Reveal.tsx`: `<Reveal>`, `<RevealGroup>` + `<RevealItem>`.
-- Scope: scroll reveals (staggered fade+rise), hover lifts, ONE animated hero graphic
-  (`graphics/HeroArchForm`), stat count-ups (`ui/Stat`). No parallax, no page transitions.
+- Scope: scroll reveals (staggered fade+rise), hover lifts/zooms, the home hero's backdrop
+  settle + teal scan-line sweep (`.animate-scan`), stat count-ups (`ui/Stat`), gentle parallax in
+  `FramedImage`. No page transitions.
 - **Reduced motion:** globally short-circuited in CSS, and components check `useReducedMotion()` to
   render static fallbacks.
 
@@ -69,6 +76,6 @@ tight negative letter-spacing and near-1.0 leading.
 ## Component map
 
 - `ui/` — Container, Button, Eyebrow, SectionHeading, Reveal, Stat.
-- `graphics/` — Wordmark, HeroArchForm, ServiceGlyph.
+- `graphics/` — BrandLogo, ServiceGlyph, FramedImage.
 - `layout/` — Header (sticky, blur-on-scroll, mobile menu), Footer.
 - `sections/` — PageHero, CTASection, ContactForm, `sections/home/*`.

@@ -27,7 +27,7 @@ export default function WorkflowPage() {
         title="One disciplined pipeline, every single case."
         lede="Quality shouldn't depend on who picked up your case. Every project moves through the same four stages, with an independent QC gate before anything reaches you."
         image={{
-          src: "/images/dental-technician-designing-3d-crown.jpg",
+          src: "/images/dental-technician-designing-3d-crown.webp",
           alt: "Dental technician designing a 3D dental model on a monitor",
           label: "WORKFLOW / DIGITAL SETUP",
         }}

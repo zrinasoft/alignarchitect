@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -14,6 +13,7 @@ type CTASectionProps = {
   secondaryHref?: string;
 };
 
+/** Closing call-to-action: a saturated teal band so it reads as the page's finale. */
 export function CTASection({
   eyebrow = "Get started",
   title,
@@ -24,30 +24,28 @@ export function CTASection({
   secondaryHref,
 }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden bg-ink text-paper">
-      {/* geometric texture */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <Image
-          src="/images/abstract-cyan-geometric-lines-background.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-[0.08] mix-blend-screen mask-radial"
-        />
-      </div>
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-60 mask-radial" />
-      {/* teal glow */}
-      <div
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-ink text-white">
+      <Image
+        src="/images/abstract-cyan-geometric-lines-background.webp"
+        alt=""
         aria-hidden
-        className="pointer-events-none absolute -right-32 top-1/2 size-[460px] -translate-y-1/2 rounded-full bg-teal/20 blur-[120px]"
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover opacity-[0.12] mix-blend-screen"
       />
-      <Container className="relative py-24 sm:py-32">
+      <span
+        aria-hidden
+        className="absolute -left-24 -top-24 -z-10 size-80 rounded-full border border-white/15"
+      />
+      <span
+        aria-hidden
+        className="absolute -bottom-32 -right-20 -z-10 size-[26rem] rounded-full border border-white/10"
+      />
+      <Container className="py-24 sm:py-28">
         <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <Eyebrow onDark>{eyebrow}</Eyebrow>
-          <h2 className="mt-6 font-display text-h1 font-medium tracking-tight text-balance">
-            {title}
-          </h2>
-          {body && <p className="mt-6 max-w-xl text-lede text-graphite-300">{body}</p>}
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-teal-100">{eyebrow}</span>
+          <h2 className="mt-5 font-display text-h1 font-medium tracking-tight text-balance">{title}</h2>
+          {body && <p className="mt-6 max-w-xl text-lede text-teal-50/90">{body}</p>}
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href={primaryHref} variant="onDark" withArrow>
               {primaryLabel}
@@ -56,7 +54,7 @@ export function CTASection({
               <Button
                 href={secondaryHref}
                 variant="ghost"
-                className="border-ink-700 !text-paper hover:!border-paper"
+                className="border-white/40 !text-white hover:!border-white"
               >
                 {secondaryLabel}
               </Button>

@@ -45,6 +45,45 @@ export const NAV: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+/* ── Home: hero, audience strip, intro ───────────────────────────────── */
+
+export const HERO = {
+  eyebrow: "Digital dentistry & design",
+  titleLead: "Engineered smiles,",
+  titlePlain: "planned with",
+  titleAccent: "precision",
+  lede: "A digital-dentistry partner for dentists, labs, and aligner brands — designing clear aligners, implants, crowns, and dentures from your digital scans, with full visibility at every stage.",
+};
+
+/** Verified facts shown in the hero stat strip (no provisional numbers here). */
+export const HERO_FACTS: { value: string; label: string }[] = [
+  { value: `${SITE.yearsExperience} yrs`, label: "Treatment planning" },
+  { value: "4", label: "Design services" },
+  { value: "QC", label: "On every case" },
+  { value: "B2B", label: "Built for professionals" },
+];
+
+export const SERVING = ["Dentists", "Orthodontists", "Dental labs", "Aligner brands"];
+
+export const INTRO = {
+  eyebrow: "About AlignArchitect",
+  title: "Clinical judgment. Digital precision.",
+  body: [
+    "AlignArchitect is a B2B digital-dentistry team. You send us scans and a prescription; we return design work you can put straight into your workflow — aligner setups, implant plans, crown & bridge, and dentures.",
+    "Beyond design, we run white-label aligner manufacturing for brands and independent treatment-plan review for clinics and labs — with full visibility from intake to delivery.",
+  ],
+  points: [
+    "Clinician-led planning, built around biomechanics",
+    "Independent QC pass on every case",
+    "Designs to your software, libraries, and parameters",
+    "Transparent status from intake to delivery",
+  ],
+  image: "/images/dental-technician-designing-3d-crown.webp",
+  imageAlt: "Dental technician designing a 3D crown on a large monitor",
+  insetImage: "/images/gloved-hands-holding-clear-dental-aligner.webp",
+  insetAlt: "Gloved hands presenting a clear aligner tray",
+};
+
 /* ── Services ─────────────────────────────────────────────────────────── */
 
 export type Service = {
@@ -76,7 +115,7 @@ export const SERVICES: Service[] = [
       "Annotated plan for case acceptance",
     ],
     audience: "Dentists, orthodontists & aligner brands",
-    image: "/images/gloved-hands-holding-clear-dental-aligner.jpg",
+    image: "/images/gloved-hands-holding-clear-dental-aligner.webp",
     imageAlt: "Gloved hands holding a clear orthodontic aligner tray",
   },
   {
@@ -94,7 +133,7 @@ export const SERVICES: Service[] = [
       "Files ready for milling or printing",
     ],
     audience: "Implantologists & dental labs",
-    image: "/images/dentist-analyzing-panoramic-child-dental-xray.jpg",
+    image: "/images/dentist-analyzing-panoramic-child-dental-xray.webp",
     imageAlt: "Dental professional reviewing a panoramic digital X-ray for implant planning",
   },
   {
@@ -112,7 +151,7 @@ export const SERVICES: Service[] = [
       "Production-ready output",
     ],
     audience: "Dental labs & clinics",
-    image: "/images/dental-technician-designing-3d-crown.jpg",
+    image: "/images/dental-technician-designing-3d-crown.webp",
     imageAlt: "Dental technician designing a 3D crown model on a monitor",
   },
   {
@@ -130,7 +169,7 @@ export const SERVICES: Service[] = [
       "Files ready for printing or milling",
     ],
     audience: "Dental labs & clinics",
-    image: "/images/dental-prosthetic-bridge-and-3d-model.jpg",
+    image: "/images/dental-prosthetic-bridge-and-3d-model.webp",
     imageAlt: "3D-printed dental arch model alongside a ceramic prosthetic set",
   },
 ];

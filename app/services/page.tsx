@@ -24,7 +24,7 @@ export default function ServicesPage() {
         title="The engineering team behind your aligner and restorative work."
         lede="Send us your digital scans and we return accurate, clinically-driven design — aligners, implants, crowns, and dentures. Use one service, or run your whole digital workflow through us."
         image={{
-          src: "/images/endodontic-file-dental-handpiece-closeup.jpg",
+          src: "/images/endodontic-file-dental-handpiece-closeup.webp",
           alt: "Close-up of a precision dental handpiece and endodontic file",
           label: "PRECISION / INSTRUMENTATION",
         }}
@@ -34,7 +34,7 @@ export default function ServicesPage() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="rounded-full border border-line-strong px-4 py-2 text-sm font-medium text-graphite-700 transition-colors hover:border-ink hover:text-ink"
+              className="rounded-full border border-white/25 bg-white/5 px-4 py-2 text-sm font-medium text-graphite-200 backdrop-blur-sm transition-colors hover:border-teal-300 hover:text-white"
             >
               {s.title}
             </a>

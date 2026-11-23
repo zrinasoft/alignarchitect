@@ -33,8 +33,8 @@ export function Header() {
       <div
         className={`transition-all duration-300 ${
           scrolled
-            ? "border-b border-line bg-paper/80 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent"
+            ? "border-b border-line bg-white/90 shadow-soft backdrop-blur-xl"
+            : "border-b border-line bg-white"
         }`}
       >
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6 sm:px-8 lg:px-12">

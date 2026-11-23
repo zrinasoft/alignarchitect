@@ -46,7 +46,7 @@ If it persists, also clear the dev cache: `rm -rf .next`.
 ```
 app/                  layout + 5 routes (/, /services, /workflow, /about, /contact)
 components/ui/        primitives (Button, Container, Eyebrow, SectionHeading, Reveal, Stat, YouTubeEmbed)
-components/graphics/  BrandLogo, HeroArchForm, ServiceGlyph, FramedImage
+components/graphics/  BrandLogo, ServiceGlyph, FramedImage
 components/layout/    Header, Footer
 components/sections/  PageHero, CTASection, ContactForm, PromoBanner, WorkflowTimeline, sections/home/*
 lib/content.ts        ALL site copy (single source of truth)
@@ -55,7 +55,12 @@ lib/motion.ts         shared Framer Motion variants
 
 ## Conventions
 - **Server Components by default.** Add `"use client"` only for motion/state: `Header`,
-  `ContactForm`, `Hero`, `Reveal`, `Stat`, `HeroArchForm`, `YouTubeEmbed`.
+  `ContactForm`, `Hero`, `Reveal`, `Stat`, `FramedImage`, `YouTubeEmbed`.
+- **Visual direction:** photo-led, dark photographic heroes, a distinct background per section.
+  Reference sites (sharksmile.net, orthoalignsolution.com) and the gap list live in
+  `docs/inspiration.md`; check it before any visual/layout work.
+- **Images:** serve the `.webp` versions in `public/images/` (originals are multi-MB JPGs kept as
+  sources). New photos: convert to WebP at ≤1800px wide before use.
 - **Copy lives in `lib/content.ts`** — don't hardcode marketing strings in JSX.
 - **Copy rule:** state only verified facts. Any unknown metric is a visible `{{token}}` tracked in
   `PLACEHOLDERS.md`. Do not invent stats, turnaround times, or claims.
